@@ -95,3 +95,55 @@ with col2:
 # ---------- FOOTER ----------
 st.markdown("---")
 st.markdown("Made with ❤️ using Python & Machine Learning")
+
+
+import streamlit as st
+import pandas as pd
+
+# Page config
+st.set_page_config(page_title="Fake Review Detection", layout="centered")
+
+# Title
+st.title("🕵️ Fake Review Detection System")
+
+# Description
+st.write("This application detects whether a review is genuine or fake using basic NLP logic.")
+
+# Upload file
+uploaded_file = st.file_uploader("📂 Upload Review Dataset (CSV)")
+
+if uploaded_file is not None:
+    data= pd.read_csv(uploaded_file)
+
+    st.subheader("📊 Dataset Preview")
+    st.dataframe(data.head())
+
+    st.write("Total Reviews:", len(data))
+
+    st.subheader("📊 Review Distribution")
+    if 'label' in data.columns:
+        st.bar_chart(data['label'].value_counts())  
+
+    st.subheader("📈 Dataset Statistics")
+    st.write(data.describe())
+
+# Divider
+st.markdown("---")
+
+# User input
+st.subheader("✍️ Enter Review for Prediction")
+review = st.text_area("Type your review here:")
+
+if st.button("🔍 Check Review"):
+    if review:
+        # Improved dummy logic
+        if any(word in review.lower() for word in ["good", "great", "excellent", "amazing"]):
+            st.success("✅ This review looks Genuine")
+        else:
+            st.error("⚠️ This review might be Fake")
+    else:
+        st.warning("Please enter a review")
+
+# Footer
+st.markdown("---")
+st.caption("Developed by Chaitali Vahadane")
