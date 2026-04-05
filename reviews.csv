@@ -1,0 +1,16 @@
+review,label
+"This product is amazing and works perfectly",real
+"Absolutely terrible, waste of money",real
+"Best purchase ever, highly recommend",real
+"Worst product I have ever used",real
+"Excellent quality and fast delivery",real
+"Do not buy this product, very bad",real
+"I love this item, very useful",real
+"Completely useless and fake product",fake
+"This is a fake review, not genuine",fake
+"Don't trust this product, scam",fake
+"Very poor quality and misleading description",fake
+"This review is spam and not real",fake
+"Fake product, do not buy",fake
+"Highly suspicious and not worth it",fake
+"Looks good but actually very bad",fake
